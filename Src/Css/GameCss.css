@@ -1,0 +1,132 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+div#countdown{
+    position: relative;
+    z-index: 3;
+    font-size: 12em;
+    width: 100%;
+    height: 100%;
+    background: red;
+    text-align: center;
+}
+div#countdownText{
+    padding-top: 50%;
+}
+div#progressBarBox{
+    height: 5%;
+    width: 0%;
+    background: red;
+}
+div#progress{
+    position: absolute;
+    background: #1B1;
+    height: 5%;
+    width: 0%;
+    animation: progress 30s linear;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;    
+}
+@keyframes progress{
+    0% {           
+        background-color: #5BB85D;
+        width: 0%;
+    }
+    69%{
+        background-color: #5BB85D;
+    }
+    70%{
+        background-color: #EFAD4D;
+    }
+    84%{
+        background-color: #EFAD4D;
+    }
+    85%{
+        background-color: #D9534E;
+    }
+    100%{
+        background-color: #D9534E;
+        width: 100%;
+    }
+}
+div#board{
+    background:#fff;
+    width:100%;
+    height: 85%;
+}
+div#board div.tile{
+        background: #fff;        
+        border:#000 2px solid;
+        border-bottom: 0;
+        width: 33.3%;
+        height: 33.3%;
+        float:left;
+        font-size: 2em;
+        cursor:pointer;
+        text-align: center;
+        vertical-align: central;
+} 
+div.tileText{
+    margin-top: 50%;
+}
+div#round{
+    background: #919;
+    padding-top: 3%;
+    width: 100%;
+    height: 10%;
+    text-align:center;
+    font-size: 2em;
+}
+div#finScreen{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: none;
+    animation: endGameBlackScreen 1s linear;
+    animation-fill-mode: forwards;
+}
+@keyframes endGameBlackScreen{
+    0% {             
+        background-color:rgba(0,0,0,0.1);
+    }
+    100%{
+        
+        background-color:rgba(0,0,0,0.9);
+    }
+}
+div#timesUp{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    color: #fff;
+    z-index: 1;
+    font-size: 4em;
+    margin-top: 50%;
+    text-align: center;
+    animation: bounce-4 2s ease infinite;
+}
+div#roundFin{
+    display: none;
+    width: 100%;
+    height: 2em;
+    padding-top: 51%;
+    position:absolute;
+    color: #fff;
+    z-index: 1;
+    font-size: 2em;
+    margin-top: 50%;
+    text-align: center;
+}
+@keyframes bounce-4 {
+    0%   { transform: scale(1,1)    translateY(0); }
+    10%  { transform: scale(1.1,.9) translateY(0); }
+    30%  { transform: scale(.9,1.1) translateY(-100px); }
+    50%  { transform: scale(1,1)    translateY(0); }
+    100% { transform: scale(1,1)    translateY(0); }
+}
