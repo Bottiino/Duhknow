@@ -126,7 +126,7 @@ and open the template in the editor.
 
         <div class="bnavbar">
             <div class="navbutt">
-                <a href="index.php" id="home">Home</a>
+                <a href="topics.php" id="home">Home</a>
                 <a href="#profile">Profile</a>
                 <a href="#dictionary">Dict</a>
                 <a href="#leaderboards">Leaderboards</a>
