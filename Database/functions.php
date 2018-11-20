@@ -103,3 +103,11 @@ function profileName($id)
         
     return $arr;
 }
+//For inserting name, email and password(Register)
+function insertUser($name,$email,$password)
+{
+    global $db;
+    
+    $insert = "INSERT INTO users (name, email,password) VALUES('$name','$email','$password')";
+    $result = pg_query($db,$insert);
+}
