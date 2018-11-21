@@ -23,7 +23,7 @@ $(function () {
             dataType: "json",
             async: false,
             url: "../Database/test.php",
-            data: {functionname: "getEightWords", arguments: [1, "french"]},
+            data: {functionname: "getEightWords", arguments: [1,"french"]},
             success: function (data){
                 result = data;
             },
@@ -141,6 +141,8 @@ $(function () {
     setTimeout(function(){show("finScreen");}, 34000);
     setTimeout(function(){show("timesUp");}, 34000);
     setTimeout(function(){show("roundFin");}, 34000);
+    setTimeout(function(){show("retryButt");}, 34000);
+    setTimeout(function(){show("mainmenuButt");}, 34000);
 
     function selectedTile(tile, centre)
     {             
@@ -169,11 +171,13 @@ $(function () {
     function timesUp(){
         $('div#timesUp').html("Times Up");
         $('div#roundFin').html("Round " + round);
+        $('button#retryButt').html("Retry");
+        $('button#mainmenuButt').html("Main Menu");
     }
     
     $(document).off('click', 'div.out_tile').on('click', 'div.out_tile', function () {
         var centreVal = $('div#centre_tile').text();
         var centre = languageChange(centreVal, "french");
         selectedTile($(this), centre);
-    });
+    });   
 });

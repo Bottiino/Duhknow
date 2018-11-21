@@ -1,54 +1,73 @@
 <!DOCTYPE html>
 <html lang="en" >
-
     <head>
         <meta charset="UTF-8">
-        <title></title>
-        <link rel="stylesheet" href="../Src/Css/style.css">
-      
+        <title>Duhknow</title>
+        
+        <script src="../Src/Js/jquery-3.3.1.min.js" type="text/javascript"></script>
+        <script src="../Src/Js/bootstrap.bundle.min.js" type="text/javascript"></script>
+        <link href="../Src/Css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../Src/Css/GameCss.css" rel="stylesheet" type="text/css"/>
     </head>
 
     <body>
-
-        <div class="container">
-            <img src="img/logo_placeholder.jpg" alt="Logo-placeholder" width="900" height="500" class="logo" >
-
-            <div id ="logplay" class="form">
-                <button id="startbutt">Start Game</button>
-                <button id="loginbutt">Login/Register</button>
-            </div>
-            <div id="login" class="modal">
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="close" id="close">&times;</span>
-                        <h2>Log-in/Register</h2>
+        <div id="indexContainer" class="container-fluid">
+            <div class="row">
+                    <div class="col-md-12">
+                        <img id="logo" src="../Imgages/book.png" alt=""/>
                     </div>
-                    <div class="modal-body">
+            </div>
+            <div id="indexStartButton" class="row">
+                    <div class="col-md-12">
+                        <a href="languageform.php">
+                            <button type="button" class="btn btn-lg btn-block active btn-success">
+                                Start
+                            </button>
+                        </a>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+
+                        <button type="button" class="link btn btn-link btn-block" data-toggle="modal" data-target="#modalLoginForm">
+                                Login
+                        </button>
                         
-                      
-                    </div>                   
-                </div>
-            </div>
-              <div id="start" class="modal">
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="close" id="close2">&times;</span>
-                        <h2>Select Languages</h2>
+                        <button type="button" class="link btn btn-link btn-block" data-toggle="modal" data-target="#modalRegisterForm">
+                                Register
+                        </button>
+                        
                     </div>
-                    <div class="modal-body">
-                        <div class="lang">
-                        <p>I want To Learn....</p>
-                        <button id="french">French</button>
-                        <br>
-                        <button id="irish">Irish</button>
-                      </div>
-                    </div>                   
-                </div>
             </div>
         </div>
-        <script  src="../Src/Js/index.js"></script>
-    </body>
+        
+        <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header text-center">
+                  <h4 class="modal-title w-100 font-weight-bold">Sign In</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body mx-3">
+                    
+                  <div class="md-form mb-5">
+                    <i class="fa fa-envelope prefix grey-text"></i>
+                    <input type="email" id="orangeForm-email" class="form-control validate" placeholder="Email">
+                  </div>
 
+                  <div class="md-form mb-4">
+                    <i class="fa fa-lock prefix grey-text"></i>
+                    <input type="password" id="orangeForm-pass" class="form-control validate" placeholder="Password">
+                  </div>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                  <button class="btn btn-deep-orange">Sign In</button>
+                </div>
+              </div>
+            </div>
+        </div>           
+    </body>
 </html>

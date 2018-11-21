@@ -1,6 +1,12 @@
 <?php
 include 'database.php';
 
+if(isset($_SESSION['topic']))
+{
+   $topic = $_SESSION['topic']; 
+}
+
+
 //function getWordsFromCategory($categoryID)
 //    {        
 //        global $db;
@@ -15,7 +21,7 @@ include 'database.php';
 //        return $categories;
 //    }
 
-function getCategorys($difficulty)
+function getCategories($difficulty)
 {        
     global $db;
 
@@ -43,10 +49,10 @@ function getWords()
         
     return $arr;
 }
-function getEightWords($categoryID, $language) {
+function getEightWords($topic, $language) {
     global $db;
     
-    $getEight = "SELECT $language FROM words JOIN word_wc on words.words_id = word_wc.words_id WHERE wc_id = ($categoryID) ORDER BY RANDOM() LIMIT 8";
+    $getEight = "SELECT $language FROM words JOIN word_wc on words.words_id = word_wc.words_id WHERE wc_id = ($topic) ORDER BY RANDOM() LIMIT 8";
     $result = pg_query($db, $getEight);
     
 
@@ -63,6 +69,20 @@ function getEightWordsFrench($categoryID) {
     
     $getEight = "SELECT french FROM words JOIN word_wc on words.words_id = word_wc.words_id WHERE wc_id = ($categoryID) ORDER BY RANDOM() LIMIT 8";
     $result = pg_query($db, $getEight);
+
+    $arr = array();
+    while($line = pg_fetch_array($result))
+    {        
+        array_push($arr, $line["french"]);
+    }
+        
+    return $arr;
+}
+function getTopicsByDiff($diff) {
+    global $db;
+    
+    $getTopics = "select category_name from word_category where category_name = ($diff)";
+    $result = pg_query($db, $getTopics);
 
     $arr = array();
     while($line = pg_fetch_array($result))

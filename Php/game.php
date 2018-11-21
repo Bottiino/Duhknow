@@ -19,9 +19,11 @@
             <div id="countdownText"></div>
         </div>
         
-        <div id="finScreen"></div>
-        <div id="timesUp" class="box bounce-4"></div>
-        <div id="roundFin"></div>
+        <div id="finScreen" class='endScreen'></div>
+        <div id="timesUp" class="endScreen box bounce-4"></div>
+        <div id="roundFin" class='endScreen'></div>
+        <button type="button" id='mainmenuButt' class="btn btn-lg btn-block active btn-success"></button>
+        <button type="button" id='retryButt' class="btn btn-lg btn-block active btn-success"></button>
         
         <div id="progressBarBox">
             <div id="progress" class="progress-bar-striped pro" role="progressbar" aria-valuenow="0" aria-valuemax="100"></div>
