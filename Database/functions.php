@@ -108,3 +108,26 @@ function languageChange($word, $language)
         
     return $arr;
 }
+function profileName($id)
+{
+    global $db;
+    
+    $getUser = "SELECT name FROM users WHERE user_id = '$id' ";
+    $result = pg_query($db, $getUser);
+    
+    $arr = array();
+    while($line = pg_fetch_array($result))
+    {        
+        array_push($arr, $line['name']);
+    }
+        
+    return $arr;
+}
+//For inserting name, email and password(Register)
+function insertUser($name,$email,$password)
+{
+    global $db;
+    
+    $insert = "INSERT INTO users (name, email,password) VALUES('$name','$email','$password')";
+    $result = pg_query($db,$insert);
+}
