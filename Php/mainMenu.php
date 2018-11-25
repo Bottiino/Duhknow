@@ -27,14 +27,14 @@
         <div id="mainmenuContainer" class="container-fluid">
             <div id='topics'>
                 <div id='beginner'>  
-                    <div class="title">Advanced</div>
+                    <div class="title">Beginner</div>
                     <?php                
                         $beginnerTopics = getCategories("beginner");
                         foreach ($beginnerTopics as $topic) : 
                             $firstWord = getFirstWord($topic);                            
                     ?>
                     <div class="outerCircle">
-                        <div class="topicCircle" data-id="<?Php echo $topic; ?>" data-toggle="modal" data-target="#modalTopicSelected"><?Php echo $topic;?>
+                        <div class="topicCircle beginnerCircle" data-id="<?Php echo $topic; ?>" data-toggle="modal" data-target="#modalTopicSelected"><?Php echo $topic;?>
                             <img class="circleImg" src="../tileImg/<?Php echo $firstWord; ?>.png" alt="<?Php echo $topic; ?>"/>
                         </div>
                     </div>
@@ -42,14 +42,14 @@
                     <?php endforeach; ?>                    
                 </div>
                 <div id='inter'>   
-                    <div class="title">Advanced</div>
+                    <div class="title">Intermediate</div>
                     <?php                
                         $interTopics = getCategories("intermediate");
                         foreach ($interTopics as $topic) : 
                             $firstWord = getFirstWord($topic);
                     ?>
                     <div class="outerCircle">
-                        <div class="topicCircle" data-toggle="modal" data-target="#modalTopicSelected"><?Php echo $topic;?>
+                        <div class="topicCircle interCircle" data-toggle="modal" data-target="#modalTopicSelected"><?Php echo $topic;?>
                             <img class="circleImg" src="../tileImg/<?Php echo $firstWord; ?>.png"/>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                             $firstWord = getFirstWord($topic);
                     ?>
                     <div class="outerCircle">
-                        <div class="topicCircle" data-toggle="modal" data-target="#modalTopicSelected"><?Php echo $topic;?>
+                        <div class="topicCircle advCircle" data-toggle="modal" data-target="#modalTopicSelected"><?Php echo $topic;?>
                             <img class="circleImg" src="../tileImg/<?Php echo $firstWord; ?>.png"/>
                         </div>
                     </div>

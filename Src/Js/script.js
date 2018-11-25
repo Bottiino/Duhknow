@@ -47,13 +47,13 @@ $(function () {
         return result;
     }
     
-    function languageChange(word, lang){
+    function languageChange(word){
         jQuery.ajax({
             type: "POST",
             dataType: "json",
             async: false,
             url: "../Database/test.php",
-            data: {functionname: "languageChange", arguments: [word, lang]},
+            data: {functionname: "languageChange", arguments: [word]},
             success: function (data){
                 result = data;
             },
@@ -94,7 +94,8 @@ $(function () {
         var topic_pics = getEightPics();
 
         var rand = Math.floor((Math.random() * 8));
-        var centerEnglish = topic_pics[rand];
+        var centerEnglish = topic_pics[rand];        
+        var centerLang = languageChange(centerEnglish);
 
         var output = '';
         var j = 0;
@@ -108,7 +109,7 @@ $(function () {
             }
             else
             {
-                output += '<div id="centre_tile" class="tile"><div class="tileText">' + centerEnglish + '</div></div>';
+                output += '<div id="centre_tile" class="tile"><div class="tileText">' + centerLang + '</div></div>';
                 i--;
             }
             j++;
@@ -122,7 +123,7 @@ $(function () {
         var topic_words = getEightWords();        
 
         var rand = Math.floor((Math.random() * 8));
-        var centreCardSeen = languageChange(topic_words[rand], "english");
+        var centreCardSeen = languageChange(topic_words[rand]);
         var centreCardHidden = topic_words[rand];
 
         var output = '';

@@ -22,7 +22,7 @@ if(isset($_POST["functionname"]))
     else if($function == "languageChange")
     {
 
-        $result = languageChange($_POST['arguments'][0], $_POST['arguments'][1]);
+        $result = languageChange($_POST['arguments'][0], $_SESSION['lang']);
     }
 
     echo json_encode($result);
