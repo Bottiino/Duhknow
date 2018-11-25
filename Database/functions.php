@@ -1,12 +1,6 @@
 <?php
 include 'database.php';
 
-if(isset($_SESSION['topic']))
-{
-   $topic = $_SESSION['topic']; 
-}
-
-
 //function getWordsFromCategory($categoryID)
 //    {        
 //        global $db;
@@ -52,28 +46,27 @@ function getWords()
 function getEightWords($topic, $language) {
     global $db;
     
-    $getEight = "SELECT $language FROM words JOIN word_wc on words.words_id = word_wc.words_id WHERE wc_id = ($topic) ORDER BY RANDOM() LIMIT 8";
+    $getEight = "SELECT $language FROM words w INNER JOIN  word_wc wwc on w.words_id = wwc.words_id INNER JOIN word_category wc on wwc.wc_id = wc.wc_id WHERE wc.category_name = '$topic' LIMIT 8;";
     $result = pg_query($db, $getEight);
     
-
     $arr = array();
     while($line = pg_fetch_array($result))
     {        
-        array_push($arr, $line[$language]);
+        array_push($arr, $line['french']); //This is hardcoded
     }
         
     return $arr;
 }
-function getEightWordsFrench($categoryID) {
+function getEightPics($topic) {
     global $db;
     
-    $getEight = "SELECT french FROM words JOIN word_wc on words.words_id = word_wc.words_id WHERE wc_id = ($categoryID) ORDER BY RANDOM() LIMIT 8";
+    $getEight = "SELECT english FROM words w INNER JOIN  word_wc wwc on w.words_id = wwc.words_id INNER JOIN word_category wc on wwc.wc_id = wc.wc_id WHERE wc.category_name = '$topic' LIMIT 8;";
     $result = pg_query($db, $getEight);
-
+    
     $arr = array();
     while($line = pg_fetch_array($result))
     {        
-        array_push($arr, $line["french"]);
+        array_push($arr, $line['english']);
     }
         
     return $arr;
@@ -123,6 +116,30 @@ function profileName($id)
         
     return $arr;
 }
+function getFirstWord($categoryName) {
+    global $db;
+    
+    $getWord = "SELECT w.english FROM words w INNER JOIN  word_wc wwc on w.words_id = wwc.words_id INNER JOIN word_category wc on wwc.wc_id = wc.wc_id WHERE wc.category_name = '$categoryName' LIMIT 1;";
+    $result = pg_query($db, $getWord);
+    
+    $line = pg_fetch_assoc($result);
+    
+    $value = $line['english'];
+        
+    return $value;
+}
+function getDifficultyByCategory($categoryName) {
+    global $db;
+    
+    $getWord = "SELECT difficulty from word_category WHERE category_name = '$categoryName';";
+    $result = pg_query($db, $getWord);
+    
+    $line = pg_fetch_assoc($result);
+    
+    $value = $line['difficulty'];
+        
+    return $value;
+}
 //For inserting name, email and password(Register)
 function insertUser($name,$email,$password)
 {
@@ -131,3 +148,18 @@ function insertUser($name,$email,$password)
     $insert = "INSERT INTO users (name, email,password) VALUES('$name','$email','$password')";
     $result = pg_query($db,$insert);
 }
+function getImg($english){
+    $result = pg_query("select picture from words where english = '$english'");
+    
+    $raw = pg_fetch_result($result, 'picture');
+        
+    return (pg_unescape_bytea($raw));
+}
+
+
+
+
+
+
+
+

@@ -125,6 +125,12 @@ html, body{
 }
 /*
 //////////////////////////////////////////////////////////////////////////////
+/////////////////////////////// Footer ////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+*/
+
+/*
+//////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////Main Menu Screen////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 */
@@ -145,15 +151,47 @@ html, body{
     top: 10%;
     margin: 0 auto;
 }
+.title{
+    width: 100%;
+    background: red;
+    text-align: center;
+    font-size: 3.5em;
+}
+.outerCircle{
+    width: 160px;
+    height: 160px;
+    background: red;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 100px;
+}
 .topicCircle{
     background: #5BB85D;
-    width: 150px;
-    height: 150px;
+    width: 90%;
+    height: 90%;
     border-radius: 100px;
+    margin-left: 5%;
+    margin-top: 10%;
+    overflow: hidden;
+    text-align: center;
+    font-size: 0;
+}
+.circleImg{
+    width: 75%;
+    height: 75%;
     margin-top: 10%;
 }
 .topicName{
     
+}
+#exp{
+    font-size: 2em;
+}
+#highestRound{
+    font-size: 2em;
+}
+.modalTopicImg{
+    width: 150px;
 }
 @media only screen and (max-width: 1300px) {
 #mainmenuContainer {
@@ -250,6 +288,12 @@ div#board div.tile{
         text-align: center;
         vertical-align: central;
 } 
+.tileImg{
+    overflow: hidden;
+    width: 100px;
+    width: 100px;
+    margin-top: -70px;
+}
 div.tileText{
     margin-top: 50%;
 }

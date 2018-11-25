@@ -1,11 +1,8 @@
 $(function () {
-   
-    var memory_values = [];
-    var memory_tile_ids = [];
-    var tiles_selected = 0;
+
     var round = 0;
 
-    setTimeout(newBoard, 3000);
+    setTimeout(newBoardBeginner, 3000);
 
     Array.prototype.shuffle = function(){
         var i = this.length, j, temp;
@@ -23,7 +20,23 @@ $(function () {
             dataType: "json",
             async: false,
             url: "../Database/test.php",
-            data: {functionname: "getEightWords", arguments: [1,"french"]},
+            data: {functionname: "getEightWords"},
+            success: function (data){
+                result = data;
+            },
+            error: function (data){                
+                console.log('Error' + data);
+            }
+        });
+        return result;
+    }
+    function getEightPics(){
+        jQuery.ajax({
+            type: "POST",
+            dataType: "json",
+            async: false,
+            url: "../Database/test.php",
+            data: {functionname: "getEightPics"},
             success: function (data){
                 result = data;
             },
@@ -77,7 +90,32 @@ $(function () {
 //       });
 //    }
 
-    function newBoard(){
+    function newBoardBeginner(){
+        var topic_pics = getEightPics();
+
+        var rand = Math.floor((Math.random() * 8));
+        var centerEnglish = topic_pics[rand];
+
+        var output = '';
+        var j = 0;
+
+        topic_pics.shuffle();
+
+        for(var i = 0; i < 8; i++){
+            if(j !== 4)
+            {
+                output += '<div class="tile out_tile"><div class="tileText"><img class="tileImg" src="../tileImg/' + topic_pics[i] + '.png"/></div></div>';
+            }
+            else
+            {
+                output += '<div id="centre_tile" class="tile"><div class="tileText">' + centerEnglish + '</div></div>';
+                i--;
+            }
+            j++;
+        }
+        document.getElementById('board').innerHTML = output;
+    }
+    function newBoardIntermediate(){
         
         //var topic_words = ['a','b','c','d','e','f','g','h'];
         
@@ -86,6 +124,33 @@ $(function () {
         var rand = Math.floor((Math.random() * 8));
         var centreCardSeen = languageChange(topic_words[rand], "english");
         var centreCardHidden = topic_words[rand];
+
+        var output = '';
+        var j = 0;
+
+        topic_words.shuffle();
+
+        for(var i = 0; i < 8; i++){
+            if(j !== 4)
+            {
+                output += '<div class="tile out_tile"><div class="tileText">' + topic_words[i] + '</div></div>';
+            }
+            else
+            {
+                output += '<div id="centre_tile" class="tile"><div class="tileText">' + centreCardSeen + '</div></div>';
+                i--;
+            }
+            j++;
+        }
+        document.getElementById('board').innerHTML = output;
+    }
+    function newBoardAdvaanced(){
+        
+        //var topic_words = ['a','b','c','d','e','f','g','h'];
+        
+        var topic_words = getEightWords();   
+        var rand = Math.floor((Math.random() * 8));
+        var centreCardSeen = languageChange(topic_words[rand], "english");
 
         var output = '';
         var j = 0;
@@ -161,12 +226,14 @@ $(function () {
         {
             tile.css('background', '#F11');
             setTimeout(newBoard,250);
-            //call function here
+            fliptile(tile);
         }
     }    
-    
-    //Create funtion here
-    
+    function fliptile(tile)
+    {
+        tile.css('transform-style','preserve-3d');
+        tile.css('animation','spin 0.8s linear');
+    }
     setTimeout(timesUp, 34000);
     function timesUp(){
         $('div#timesUp').html("Times Up");

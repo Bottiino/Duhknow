@@ -1,3 +1,6 @@
+<?Php 
+    $title = "Choose a language"
+?>
 <!DOCTYPE html>
 <html lang="en" >
     <head>
@@ -13,18 +16,7 @@
     </head>
 
     <body>
-
-        <div class="row">
-            <div id="languageBar" class="col-md-12">
-                <div class='col-md-6'>
-                    <a href='index.php'><i class="fas fa-arrow-left"></i></a>
-                </div>
-                <div claa='col-md-6'>
-                    <p>Choose your Language</p>
-                </div>
-            </div>
-        </div>
-        
+        <?Php include 'header.php'; ?>
         <div id="languageContainer" class="container-fluid">
             <form class="likeForm">
                 <div class="row">                    

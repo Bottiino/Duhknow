@@ -1,22 +1,36 @@
 <?Php
 include 'database.php';
+include 'session.php';
 include 'functions.php';
 
-$function = $_POST["functionname"];
-$first = $_POST["arguments"][0];
-$second = $_POST["arguments"][1];
-
-$result = array();
-
-if($function === "getEightWords")
+if(isset($_POST["functionname"]))
 {
-    $result = getEightWordsFrench($first, $second);
-}
-else if($function === "languageChange")
-{
-    $result = languageChange($first, $second);
-}
+    $function = $_POST["functionname"];
 
-echo json_encode($result);
+    $result = array();
+
+    if($function == "getEightPics")
+    {
+        $result = getEightPics($_SESSION['topic']);
+    }
+    else if($function == "getEightWords")
+    {
+        $first = $_SESSION['topic'];
+        $second = $_SESSION['Language'];
+        $result = getEightWords($first, $second);
+    }
+    else if($function == "languageChange")
+    {
+
+        $result = languageChange($_POST['arguments'][0], $_POST['arguments'][1]);
+    }
+
+    echo json_encode($result);
+}
+else if($_POST['modalTopic'])
+{
+    $_SESSION['topic'] = $_POST['modalTopic'][0];
+    $_SESSION['topicUpper'] = $_POST['modalTopic'][1];  
+}
 
 ?>
