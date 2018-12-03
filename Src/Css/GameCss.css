@@ -1,0 +1,451 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: #ddd;
+}
+/*
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////Index Screen////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+*/
+#bg{
+    width: 100%;
+    height: 100%;
+    background: #800080;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #ffc0cb, #800080);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #ffc0cb, #800080); 
+}
+#indexContainer{
+    width: 30%;
+    height: 100%;
+    background: #800080;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #ffc0cb, #800080);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #ffc0cb, #800080); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#logo{
+    width: 80%;
+    margin: 0 6%;
+    margin-top: 10%;
+}
+#indexStartButton{
+    margin-left: 0.1%;
+    width: 100%;
+    height: 80px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+.link{
+    color: black;
+    font-size: 1.9em;
+}
+
+@media only screen and (max-width: 1300px) {
+#indexContainer {
+    width: 40%;    
+}
+}
+@media only screen and (max-width: 1100px) {
+#indexContainer {
+    width: 50%;    
+}
+}
+@media only screen and (max-width: 900px) {
+#indexContainer {
+    width: 60%;    
+}
+}
+@media only screen and (max-width: 700px) {
+#indexContainer {
+    width: 70%;    
+}
+}
+@media only screen and (max-width: 500px) {
+#indexContainer {
+    width: 80%;    
+}
+}
+/*
+//////////////////////////////////////////////////////////////////////////////
+///////////////////////////////Header Screen////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+*/
+
+#languageBar{
+    position: fixed;
+    z-index: 99;
+    background: #800080;  /* fallback for old browsers */
+    background: linear-gradient(to bottom, #f000f0, #400040); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;    
+}
+footer{
+    width: 100%;
+    height: 100px;
+}
+#languageFooter{
+    position: fixed;
+    z-index: 99999;
+    width: 100%;
+    top: 88%;
+    background: #800080;  /* fallback for old browsers */
+    background: linear-gradient(to bottom, #800080, #fff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.bnavbar{
+    width: 100%;
+}
+.navbutt a, .navbutt{
+    display: inline-block;
+    font-size: 1.8em;
+    width: 24%;
+    height: 100px;
+    text-align: center;
+    color: black;    
+}
+.navbutt a :hover{
+    color: white;
+}
+/*
+//////////////////////////////////////////////////////////////////////////////
+///////////////////////////////Langauge Screen////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+*/
+#languageContainer{
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    margin-top: 100px;
+}
+#languageBar{
+    padding-top: 10px;
+    border-bottom: 1px #000 solid;
+    text-align: center;
+    font-size: 2em;
+}
+.language{
+    overflow: hidden;
+    border: 2px #000 solid;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    padding: 1% 0% 1%;
+    background: #fff;
+    text-align: center;
+    font-size: 2em;
+    cursor: pointer;
+}
+#frenchLanguage{
+    background-image: url("../../Imgages/french.png") ;
+    background-size: 100% 100%;
+}
+#irishLanguage{
+    background-image: url("../../Imgages/irish.png") ;
+    background-size: 100% 100%;
+
+}
+#germanLanguage{
+    background-image: url("../../Imgages/german.png") ;
+    background-size: 100% 100%;
+}
+#spanishLanguage{
+    background-image: url("../../Imgages/spanish.png") ;
+    background-size: 100% 100%;
+}
+@media only screen and (max-width: 1300px) {
+#languageContainer {
+    width: 40%;    
+}
+}
+@media only screen and (max-width: 1100px) {
+#languageContainer {
+    width: 50%;    
+}
+}
+@media only screen and (max-width: 900px) {
+#languageContainer {
+    width: 60%;    
+}
+}
+@media only screen and (max-width: 700px) {
+#languageContainer {
+    width: 70%;    
+}
+}
+@media only screen and (max-width: 500px) {
+#languageContainer {
+    width: 80%;    
+}
+}
+/*
+//////////////////////////////////////////////////////////////////////////////
+/////////////////////////////// Footer ////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+*/
+
+/*
+//////////////////////////////////////////////////////////////////////////////
+///////////////////////////////Main Menu Screen////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+*/
+#mainmenuContainer{
+    width: 50%;
+    height: 100%;
+    margin-top: 100px;
+    
+}
+#topics
+{
+    width: 100%;
+    height: 100%;
+    margin-top: 25px;
+    margin: 0 auto;
+}
+.diffTitle{
+    text-align: center;
+    font-size: 2em;
+    top: 10%;
+    margin: 0 auto;
+}
+.title{
+    width: 100%;
+    text-align: center;
+    font-size: 3.5em;
+}
+.outerCircle{
+    background: #848;
+    width: 170px;
+    min-width: 170px;
+    max-width: 170px;
+    height: 170px;
+    min-height: 170px;
+    max-height: 170px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 100px;
+    padding: 10px 10px 10px;
+}
+.topicCircle{  
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 0;
+}
+.beginnerCircle{
+    background: #5BB85D;
+}
+.interCircle{
+    background: #EFAD4D;
+}
+.advCircle{
+    background: #D9534E;
+}
+.circleImg{
+    width: 75%;
+    height: 75%;
+    margin-top: 10%;
+}
+.topicCircleTitle{
+    font-size: 2em;
+    text-align: center;
+}
+#exp{
+    font-size: 2em;
+}
+#highestRound{
+    font-size: 2em;
+}
+.modalTopicImg{
+    width: 150px;
+    height: 150px;
+}
+@media only screen and (max-width: 1300px) {
+#mainmenuContainer {
+    width: 80%;    
+}
+}
+@media only screen and (max-width: 1100px) {
+#mainmenuContainer {
+    width: 50%;    
+}
+}
+@media only screen and (max-width: 900px) {
+#mainmenuContainer {
+    width: 70%;    
+}
+}
+@media only screen and (max-width: 700px) {
+#mainmenuContainer {
+    width: 90%;    
+}
+}
+@media only screen and (max-width: 500px) {
+#mainmenuContainer {
+    width: 100%;    
+}
+}
+/*
+//////////////////////////////////////////////////////////////////////////////
+///////////////////////////////Game Screen////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+*/
+div#gameContainer{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+div#countdown{
+    position: relative;
+    z-index: 3;
+    font-size: 6em;
+    width: 100%;
+    height: 100%;
+    background: red;
+    text-align: center;
+}
+div#countdownText{
+    padding-top: 280px;
+}
+div#progressBarBox{
+    height: 5%;
+    width: 0%;
+    background: red;
+}
+div#progress{
+    position: absolute;
+    background: #1B1;
+    height: 5%;
+    width: 0%;
+    animation: progress 30s linear;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;    
+}
+@keyframes progress{
+    0% {           
+        background-color: #5BB85D;
+        width: 0%;
+    }
+    69%{
+        background-color: #5BB85D;
+    }
+    70%{
+        background-color: #EFAD4D;
+    }
+    84%{
+        background-color: #EFAD4D;
+    }
+    85%{
+        background-color: #D9534E;
+    }
+    100%{
+        background-color: #D9534E;
+        width: 100%;
+    }
+}
+div#board{
+    background:#fff;
+    width:100%;
+    height: 85%;
+}
+div#board div.tile{
+        background: #fff;        
+        border:#000 1px solid;
+        border-bottom: 0;
+        width: 33.3%;
+        height: 33.3%;
+        float:left;
+        font-size: 2em;
+        cursor:pointer;
+        text-align: center;
+        vertical-align: central;
+        font-weight: bold;
+} 
+.tileImg{
+    font-weight: bold;
+    overflow: hidden;
+    width: 90px;
+    width: 90px;
+    margin-top: -20px;
+}
+div.tileText{
+    margin-top: 2em;
+}
+div#round{
+    background: #919;
+    color: #fff;
+    padding-top: 2%;
+    width: 100%;
+    height: 10%;
+    text-align:center;
+    font-size: 2em;
+}
+div#finScreen{
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: none;
+    animation: endGameBlackScreen 1s linear;
+    animation-fill-mode: forwards;
+}
+@keyframes endGameBlackScreen{
+    0% {             
+        background-color:rgba(0,0,0,0.1);
+    }
+    100%{
+        
+        background-color:rgba(0,0,0,0.9);
+    }
+}
+div#timesUp{
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    height: 60%;
+    position:absolute;
+    color: #fff;
+    z-index: 1;
+    font-size: 4em;
+    margin-top: 150px;
+    text-align: center;
+    animation: bounce-4 2s ease infinite;
+}
+div#roundFin{
+    display: none;
+    width: 100%;
+    height: 2em;
+    position:absolute;
+    color: #fff;
+    z-index: 1;
+    font-size: 2em;
+    margin-top: 340px;
+    text-align: center;
+}
+button#retryButt{
+    display: none; 
+    position:absolute;
+    z-index: 1;
+    margin-top: 450px;
+    width: 50%;
+    margin-left: 25%;
+}
+button#mainmenuButt{
+    margin-top: 520px;
+    display: none; 
+    position:absolute;
+    width: 50%;
+    margin-left: 25%;
+    z-index: 1;
+}
+@keyframes bounce-4 {
+    0%   { transform: scale(1,1)    translateY(0); }
+    10%  { transform: scale(1.1,.9) translateY(0); }
+    30%  { transform: scale(.9,1.1) translateY(-100px); }
+    50%  { transform: scale(1,1)    translateY(0); }
+    100% { transform: scale(1,1)    translateY(0); }
+}
