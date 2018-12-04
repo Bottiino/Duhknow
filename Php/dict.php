@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php
+include("../Database/database.php");
+include("../Database/session.php");
+include("../Database/functions.php");
+
+$lang = $_SESSION['lang'];
+$words = getWords();
+
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -85,7 +89,7 @@ and open the template in the editor.
                 border: 0;
                 padding: 10px 15px;
                 color: white;
-                background-color: #a29bfe;
+                background-color: #a29bfe; 
                 border-radius: 3px;
                 width: 250px;
                 cursor: pointer;
@@ -106,33 +110,21 @@ and open the template in the editor.
 
 
             <h1 class="title">Dictionary</h1>
-            <h4 class="title">French</h4>
+            <h4 class="title"><?php echo ucfirst($lang)?></h4>
             <button class="switch" >Switch</button>
             <table>
                 <thead>
                     <tr class="heads">
-                        <td>French</td>
+                        <td><?php echo ucfirst($lang)?></td>
                         <td>English</td>
                     </tr>
                 </thead>
                 <tbody>
-                <td class="letter">A</td>
-                <tr>
-                    <td>Aller</td>
-                    <td>To go</td>
-                </tr>
-                <td class="letter">B</td>
-                <tr>
-                    <td>Buerre</td>
-                    <td>Butter</td>
-                </tr>
-                <td class="letter">C</td>
-                <tr>
-                    <td>Canard</td>
-                    <td>Duck</td>
-                </tr>
-
-
+                <?php
+                    foreach($words as $word) {
+                        echo "<tr><td>".$word[$lang]."</td><td>".$word["english"]."</td></tr>";
+                    }
+                ?>
                 </tbody>
             </table>
         </div>

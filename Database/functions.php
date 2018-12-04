@@ -42,6 +42,21 @@ function getWords()
         
     return $arr;
 }
+function getWordsAlphabetically($language)
+{
+     global $db;
+    
+    $getWord = "SELECT $language FROM words ORDER ASC;";
+    $result = pg_query($db, $getWord);
+    
+    $arr = array();
+    while($line = pg_fetch_array($result))
+    {        
+        array_push($arr, $line[$language]); //This is hardcoded
+    }
+        
+    return $arr;   
+}
 function getEightWords($topic, $language) {
     global $db;
     
